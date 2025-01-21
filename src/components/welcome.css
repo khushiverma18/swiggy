@@ -1,0 +1,113 @@
+/* WelcomePage.css */
+  
+  .welcome-container {
+    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+    background: url('../assets/welcome.png')  ; /* Dark background */
+    background-size: contain; /* Ensure the image fits without stretching */
+    background-color: #fe751f; 
+background-repeat: no-repeat !important;
+background-position: 0 40px !important;
+  }
+  
+  
+  .welcome-message {
+    font-size: 52px;
+    color: #fff;
+    padding-left:680px ;
+    font-family: sans-serif;
+    text-shadow: 0 1px 0 #b7b7b7 , 6px 0 transparent;
+    animation: textGlow 2s infinite ease-in-out;
+  }
+  
+  .food{
+    font-size: 68px;
+    padding-left: 50px;
+   
+  }
+  .to{
+    padding-left: 170px;
+  }
+  @keyframes textGlow {
+    0%, 100% {
+      text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff69b4;
+    }
+    50% {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff69b4, 0 0 40px #ff69b4, 0 0 50px #ff69b4;
+    }
+  }
+
+
+  @keyframes frtGlow {
+    0%, 100% {
+      text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff69b4;
+    }
+    50% {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff69b4, 0 0 40px #ff69b4, 0 0 50px #ff69b4;
+    }
+  }
+
+  /* Fruits animation */
+  .fruits {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    animation: frtGlow 2s infinite ease-in-out;
+  }
+  
+  .fruit {
+    position: absolute;
+    top: -10%;
+    font-size: 32px;
+    user-select: none;
+    animation: fall 10s linear infinite, sway 5s ease-in-out infinite;
+  }
+
+
+  
+  /* Falling animation */
+  @keyframes fall {
+    0% {
+      top: -10%;
+    }
+    100% {
+      top: 110%;
+    }
+  }
+  
+  /* Swaying animation */
+  @keyframes sway {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(20px);
+    }
+  }
+  
+  /* Random positions and durations for fruits */
+  .fruit:nth-child(1) { left: 10%; animation-duration: 8s; }
+  .fruit:nth-child(2) { left: 20%; animation-duration: 12.5s; }
+  .fruit:nth-child(3) { left: 30%; animation-duration: 22s; }
+  .fruit:nth-child(4) { left: 40%; animation-duration: 3s; }
+  .fruit:nth-child(5) { left: 50%; animation-duration: 11s; }
+  .fruit:nth-child(6) { left: 60%; animation-duration: 17.5s; }
+  .fruit:nth-child(7) { left: 70%; animation-duration: 10.5s; }
+  .fruit:nth-child(8) { left: 80%; animation-duration: 9.5s; }
+  .fruit:nth-child(9) { left: 90%; animation-duration: 18.5s; }
+
+
+  
+
+  
+
+
+
+
+
