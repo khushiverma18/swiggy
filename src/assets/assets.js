@@ -14,6 +14,17 @@ import menu_11 from './menu_11.jpeg'
 import menu_16 from './menu_16.jpeg'
 import menu_19 from './menu_19.jpeg'
 
+import w1 from './w1.webp'
+import w2 from './w2.jpg'
+import w3 from './w3.png'
+import w4 from './w4.webp'
+import w5 from './w5.avif'
+import w6 from './w6.webp'
+import w7 from './w7.webp'
+import w8 from './w8.jpeg'
+import w9 from './w9.jpg'
+import w10 from './w10.avif'
+
 import food_1 from './food_1.png'
 import food_2 from './food_2.png'
 import food_3 from './food_3.png'
@@ -90,6 +101,40 @@ export const assets = {
     bag_icon,
     parcel_icon
 }
+
+export const wlist=[{
+    w:w1
+}
+,{
+    w:w3
+},{
+    w:w2
+}
+,{
+    w:w10
+}
+,{
+    w:w4
+}
+,{
+    w:w5
+},{
+    w:w6
+}
+,{
+    w:w7
+},{
+    w:w2
+}
+,{
+    w:w8
+},{
+    w:w9
+},{
+    w:w10
+},{
+    w:w5
+}]
 
 export const menu_list = [
     {

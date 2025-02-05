@@ -1,54 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import './welcome.css'
-import { useNavigate } from 'react-router-dom';
+import { wlist } from "../assets/assets"
 
 const WelcomePage = () => {
-  const [showMessage, setShowMessage] = useState(true);
-  const messageParts = [
-    { text: "Welcome", className: "food" },
-    { text: "to", className: "to" },
-    { text: "FoodMood World!😋"}
-  ];
-  const navigate = useNavigate();
-
-  // Speech synthesis effect
-  useEffect(() => {
-    if (showMessage) {
-      messageParts.forEach((part, index) => {
-        const utterance = new SpeechSynthesisUtterance(part.text);
-        speechSynthesis.speak(utterance);
-      });
-    }
-  }, [showMessage, messageParts]);
+  const [flip, setFlip] = useState(false);
 
   // Hide the message and redirect after 5 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowMessage(false);
-     navigate('/home');
+    // navigate('/home');
     }, 7000);
 
     return () => clearTimeout(timer);
-  }, [navigate]);
+  });
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFlip(true); // Start flip animation
+      setTimeout(() => {
+        setFlip(false); // Reset flip animation
+      }, 500); // Delay for smooth transition
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
 
   return (
-        <div className="welcome-container">
-          {showMessage && <h1 className="welcome-message">
-            {messageParts.map((part,index)=>(
-              <span key={index} className={part.className}>
-              {part.text}
-              {index < messageParts.length - 1 && <br />}
-            </span>
-            ))}</h1>}
-          <div className="fruits" aria-hidden="true">
-            {Array.from({ length: 50 }).map((_, index) => (
-              <div key={index} className="fruit">
-                {['🫧','🫧','🤍','🫧','🫧','🤍'][index % 5]} {/* Multiple fruits */}
-              </div>
-            ))}
-          </div>
+    <div className="wel">
+    <div className="grid-container ">
+      {wlist.map((item, index) => (
+        <div key={index} className={ `grid-item item-${index + 1} ${flip ? "flip" : ""}`}>
+         <div className='flip-inner'> <img src={item.w} alt="." className="w-full h-full img" /></div>
         </div>
+      ))}
+    </div>
+  </div>
       );
     };
 export default WelcomePage;

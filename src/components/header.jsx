@@ -52,12 +52,12 @@ export default function Header() {
            </div>
 
         <nav className='flex list-none gap-10 ml-auto mr-2 font-semibold text-[18px] cursor-pointer'>
-     <Link to='/home'><li onClick={()=>handleSpeech('home')}  className='hover:text-[#fc8019]'><MdHome  className='inline'/>Home</li></Link> 
+     <Link to='/'><li onClick={()=>handleSpeech('home')}  className='hover:text-[#fc8019]'><MdHome  className='inline'/>Home</li></Link> 
           <Link to='/search'><li onClick={()=>handleSpeech('search')} className='hover:text-[#fc8019]'><IoSearch className='inline'/>
             Search</li></Link> 
             <li onClick={()=>handleSpeech('offer')} className='hover:text-[#fc8019]'><BiSolidOffer className='inline'/>
             Offer</li>
-            <li onClick={()=>{ handleSpeech('singin your account') ;setlog(true)}} className='hover:text-[#fc8019]'><IoPerson className='inline'/>Sing in</li>
+            <li onClick={()=>{ handleSpeech('singin your account') ;setlog(true)}} className='hover:text-[#fc8019]'><IoPerson className='inline'/>Sign in</li>
        <Link to='/cart'> <li onClick={()=>handleSpeech('cart')} className='hover:text-[#fc8019]'><BsCart2 className='inline'/>Cart</li></Link>  
         </nav>
         </div>
