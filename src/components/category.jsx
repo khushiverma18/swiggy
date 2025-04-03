@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { menu_list } from "../assets/assets";
 
 export default function Category({category,setcategory}){
-  const [Cate,setCate]=useState([]);
   const[slide,setslide]=useState(0);
   
   //

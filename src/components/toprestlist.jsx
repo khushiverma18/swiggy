@@ -4,12 +4,12 @@ import "./Toprest.css";
 import { Storecontext } from "../context/storecontext";
 export default function Toprestlist({id,name,price,description,image})  {
  
-  const{cartitem,addtocart,removecart}=useContext(Storecontext);
+  const{cartitem,addtocart,removecart,url}=useContext(Storecontext);
   
   return (
       <div className="food-item">
         <div className="food-item-img">
-            <img className="food-item-image" src={image} alt=".."/>
+            <img className="food-item-image" src={url+"/images/"+image} alt=".."/>
 {!cartitem[id]
 ?<img className="add" onClick={()=>addtocart(id)} src={assets.add_icon_white} alt=""/>
 :<div className="food-item-counter">

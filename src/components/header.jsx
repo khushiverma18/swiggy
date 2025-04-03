@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Loginpop from './loginpop/loginpop';
 import { RxCaretDown } from "react-icons/rx";
 import { IoSearch } from "react-icons/io5";
@@ -6,15 +6,18 @@ import { BiSolidOffer } from "react-icons/bi";
 import { MdHome } from "react-icons/md";
 import { IoPerson } from "react-icons/io5";
 import { BsCart2 } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { Storecontext } from '../context/storecontext';
+import { assets } from '../assets/assets';
 
 
 
 export default function Header() {
   const [log,setlog]=useState(false);
     const [toggle,settoggle]=useState(false);
+    const{getTotalCartAmount,token,setToken}=useContext(Storecontext);
+
     function show(){
-    console.log("print");
     settoggle(true);
     }
 
@@ -27,6 +30,13 @@ export default function Header() {
     const utterance = new SpeechSynthesisUtterance(text);
     speechSynthesis.speak(utterance);
   };
+  const navigate=useNavigate()
+
+  const logout=()=>{
+    localStorage.removeItem("token")
+    setToken("");
+navigate("/")
+  }
   return (
     <>
      {log?<Loginpop setlog={setlog}/>:<></>}
@@ -55,9 +65,38 @@ export default function Header() {
      <Link to='/'><li onClick={()=>handleSpeech('home')}  className='hover:text-[#fc8019]'><MdHome  className='inline'/>Home</li></Link> 
           <Link to='/search'><li onClick={()=>handleSpeech('search')} className='hover:text-[#fc8019]'><IoSearch className='inline'/>
             Search</li></Link> 
-            <li onClick={()=>handleSpeech('offer')} className='hover:text-[#fc8019]'><BiSolidOffer className='inline'/>
-            Offer</li>
-            <li onClick={()=>{ handleSpeech('singin your account') ;setlog(true)}} className='hover:text-[#fc8019]'><IoPerson className='inline'/>Sign in</li>
+            {!token ? (
+              <li
+                onClick={() => {
+                  handleSpeech("sign in your account");
+                  setlog(true);
+                }}
+                className="hover:text-[#fc8019] cursor-pointer flex items-center gap-1"
+              >
+                <IoPerson className="inline" />
+                Sign in
+              </li>
+            ) : (
+              <li className="relative group cursor-pointer">
+              <img
+                src={assets.profile_icon}
+                alt="Profile"
+                className="w-8 h-8 rounded-full"
+              />
+                 <ul className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg hidden group-hover:block ">
+    <li onClick={()=>navigate('/myorders')} className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 hover:text-[#fc8019] cursor-pointer">
+      <img src={assets.bag_icon} alt="Orders" className="w-5 h-5" />
+      <p>Orders</p>
+    </li>
+    <hr className="border-t border-gray-300 my-1" />
+    <li onClick={logout} className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 hover:text-[#fc8019] cursor-pointer">
+      <img src={assets.logout_icon} alt="Logout" className="w-5 h-5" />
+      <p>Logout</p>
+    </li>
+  </ul>
+              </li>
+            )}
+           
        <Link to='/cart'> <li onClick={()=>handleSpeech('cart')} className='hover:text-[#fc8019]'><BsCart2 className='inline'/>Cart</li></Link>  
         </nav>
         </div>

@@ -174,12 +174,12 @@ export const menu_list = [
                 menu_image: menu_11}
                 ,
                                 {
-                                    menu_name: "Noodles",
-                                    menu_image: menu_16}
-                                    ,
-                                            {
-                                                menu_name: "Biryani",
-                                                menu_image: menu_19 },  
+                  menu_name: "Noodles",
+                  menu_image: menu_16}
+                     ,
+                      {
+                      menu_name: "Biryani",
+                   menu_image: menu_19 },  
                                                     ]
 
 export const food_list = [

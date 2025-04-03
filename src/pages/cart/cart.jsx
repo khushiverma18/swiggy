@@ -6,7 +6,7 @@ import Footer from '../../components/footer';
 import { useNavigate } from 'react-router-dom';
 
 export default function Cart() {
-  const { cartitem, food_list, removecart,getTotalCartAmount  } = useContext(Storecontext);
+  const { cartitem, food_list, removecart,getTotalCartAmount,url  } = useContext(Storecontext);
 const navigate=useNavigate();
   return (
     <div>
@@ -28,7 +28,7 @@ const navigate=useNavigate();
               return (
                 <div key={index}>
                   <div className='cart-items-title cart-items-item'>
-                    <img src={item.image} alt='.' />
+                    <img src={url+"/images/"+item.image} alt='.' />
                     <p>{item.name}</p>
                     <p>${item.price}</p>
                     <p>{cartitem[item._id]}</p>
@@ -60,7 +60,7 @@ const navigate=useNavigate();
               <b>{getTotalCartAmount()+2}</b>
             </div>
           </div>
-          <button onClick={()=>navigate('/order')}>PROCEED TO CHECKOUT</button>
+          <button onClick={()=>{ console.log("Navigating to Order, Cart Items:", cartitem);navigate('/order')}}>PROCEED TO CHECKOUT</button>
         </div>
         <div className='cart-promocode'>
           <div>

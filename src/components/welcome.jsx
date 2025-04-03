@@ -28,7 +28,7 @@ const WelcomePage = () => {
     <div className="wel">
     <div className="grid-container ">
       {wlist.map((item, index) => (
-        <div key={index} className={ `grid-item item-${index + 1} ${flip ? "flip" : ""}`}>
+        <div key={index} className={ `grid-item item-${index + 1}`}>
          <div className='flip-inner'> <img src={item.w} alt="." className="w-full h-full img" /></div>
         </div>
       ))}
